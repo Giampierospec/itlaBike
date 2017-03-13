@@ -5,7 +5,7 @@
         <h1><i class="fa fa-bicycle"></i> Itla Bike</h1>
         <p>Copyright &copy;  I Ragazzi team <?php echo date('Y'); ?></p>
         </div>
-        <!-- End of container -->
+        <!-- End of container-->
       </div>
 
 </footer>

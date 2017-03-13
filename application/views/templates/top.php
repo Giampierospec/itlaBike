@@ -15,6 +15,7 @@
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/01d9e54a7d.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('')?>css/main.css" />
+<link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
