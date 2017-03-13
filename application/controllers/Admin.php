@@ -27,4 +27,14 @@ function publicar_anuncio(){
   $this->load->view('templates/footer');
 }
 
+function login(){
+  //The first and third line imports the templates
+  // which are in the templates folder under views.
+  // the middle one is to render the view you want to see.
+  $this->load->view('templates/top');
+  $this->load->view("admin/login");
+  $this->load->view('templates/footer');
+
+}
+
 }
