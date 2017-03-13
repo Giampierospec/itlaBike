@@ -41,4 +41,5 @@
           </div>
         </div>
       </nav>
+      <!-- The container -->
     <div class="container-fluid text-center">

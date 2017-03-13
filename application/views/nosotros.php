@@ -1,3 +1,4 @@
+<!-- Here is some placeholder info for the about us page -->
 <div class="jumbotron  redcd_jb">
   <h1>Sobre nosotros</h1>
   <div class="row">
