@@ -41,6 +41,21 @@ class Admin extends CI_Controller{
         //The first and third line imports the templates
         // which are in the templates folder under views.
         // the middle one is to render the view you want to see.
+        
+        // Check if user is logged in
+        if ($this->facebook->is_authenticated())
+        {
+            // User logged in, get user details
+            $user = $this->facebook->request('get', '/me?fields=id,name,last_name,gender,email, picture');
+            
+            if (!isset($user['error']))
+            {
+                $data['user'] = $user;
+            }
+        }
+        
+        //  $this->load->view('data', $data);
+        
         $this->load->view('templates/top');
         $this->load->view("admin/register");
         $this->load->view('templates/footer');
