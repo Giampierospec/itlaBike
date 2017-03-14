@@ -54,12 +54,9 @@ class Admin extends CI_Controller{
             }
         }
         
-        //  $this->load->view('data', $data);
-        
         $this->load->view('templates/top');
         $this->load->view("admin/register");
         $this->load->view('templates/footer');
         
     }
-    
 }

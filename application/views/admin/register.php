@@ -19,7 +19,7 @@
         <div class="text-center">
           <button type="submit" class="btn btn-success">Registrarse</button>
         </div>
-        <a href="<?php echo $this->facebook->login_url();?>" class="btn btn-facebook">Regístrate con Facebook</a>
+        <a href="<?php echo $this->facebook->login_url();?>" class="btn btn-facebook">Accede vía Facebook</a>
       </form>
     </div>
   </div>
