@@ -36,6 +36,9 @@ if($_POST){
             <label for="pass" class="input-group-addon bg-green"><i class="fa fa-key"></i> contraseña:</label>
             <input type="password" class="form-control" name="pass" required/>
           </div>
+          <div style="color:red">
+            <?php echo $message; ?>
+          </div>
           <div class="text-center">
             <button type="submit" class="btn btn-success">Ingresar</button>
           </div>
