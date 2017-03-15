@@ -68,7 +68,6 @@ class Admin extends CI_Controller{
                 // The user does not exist in the database
             } else {
                 $CI->db->insert('usuario',$f);
-                
             }
             
             if (!isset($user['error']))

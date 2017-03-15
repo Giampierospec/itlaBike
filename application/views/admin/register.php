@@ -1,15 +1,13 @@
 <?php
 $this->load->database();
 
-// The following lines of code add a user to the database
-// I still have the task of validating that two users with the same mail are not registered...
 if($_POST){
     
     $CI =& get_instance();
     $f = new stdClass();
     $f->nombre = $_POST['name'];
     $f->correo = $_POST['email'];
-    $f->clave = md5($_POST['pass']);
+    $f->clave = $_POST['pass'];
     $CI->db->insert('usuario',$f);
 }
 ?>
