@@ -2,15 +2,45 @@
 $this->load->database();
 
 if($_POST){
-    
+
     $CI =& get_instance();
     $f = new stdClass();
     $f->nombre = $_POST['name'];
     $f->correo = $_POST['email'];
-    $f->clave = $_POST['pass'];
-    $CI->db->insert('usuario',$f);
+    $f->clave = md5($_POST['pass']);
+    // Here i verify that this user already exists within the database
+    $sql = 'select * from usuario where correo = ?';
+    $rs = $CI->db->query($sql, array($f->correo));
+    $rs = $rs->result();
+    if(count($rs) > 0){
+      ?>
+      <!-- In this script i put a message that will fade in 5 seconds -->
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $("#message").show(0,showMessage);
+      });
+
+        function showMessage(){
+          //This command will show the message inside this div
+          $("#message").html("<span> El usuario ya existe </span>").fadeIn(2000,hideMessage);
+        }
+        function hideMessage(){
+          //Dissappear the message
+          $("#message").fadeOut(5000);
+        }
+      </script>
+      <?php
+
+    }
+    else{
+      $CI->db->insert('usuario',$f);
+      redirect('admin');
+    }
+
+
 }
 ?>
+
 
   <!-- This view is for Registering in the application-->
   <div class="row" id="input_login">
@@ -36,6 +66,9 @@ if($_POST){
           <a href="<?php echo $this->facebook->login_url();?>" class="btn btn-facebook">Accede vía Facebook</a>
         </form>
       </div>
+      <div id="message" class="alert alert-danger" style="display:none;">
+
+      </div>
     </div>
     <!-- Redirect to Login -->
     <div class="col col-sm-6">
@@ -46,6 +79,7 @@ if($_POST){
             <a href="<?php echo base_url('admin') ?>" class="btn btn-info"><i class="fa fa-sign-in"></i> Conecta a tu cuenta</a>
           </div>
         </div>
+
       </div>
     </div>
   </div>

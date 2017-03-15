@@ -10,11 +10,13 @@ if($_POST){
     $password = md5($_POST['pass']);
     $rs = $CI->db->query($sql, array($email, $password));
     $rs = $rs->result();
-    
+
     // The user exists in the database
     if(count($rs) > 0){
         $_SESSION['itla_bike_user'] = $rs[0];
-        redirect('admin/publicar_anuncio');
+        //I redirect this to admin because if it is set it is better to show the start page
+        // in this view you should be able to see all the info of the user
+        redirect('admin');
         // The user does not exist in the database
     } else {
         $message = "Usuario o contraseña no válida";
@@ -51,7 +53,7 @@ if($_POST){
         <h1>¿No tiene cuenta?</h1>
         <div class="row">
           <div class="col-sm-12">
-            <a href="<?php echo base_url('admin/register') ?>" class="btn btn-info"><i class="fa fa-sign-in"></i> Registrarse</a>
+            <a href="<?php echo base_url('register') ?>" class="btn btn-info"><i class="fa fa-sign-in"></i> Registrarse</a>
           </div>
         </div>
       </div>
