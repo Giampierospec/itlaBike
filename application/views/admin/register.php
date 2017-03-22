@@ -1,5 +1,4 @@
 <?php
-$this->load->database();
 
 if($_POST){
 

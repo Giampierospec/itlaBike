@@ -2,6 +2,45 @@
 <?php
 //This will catch who is the current user
 $currentUser = $_SESSION['itla_bike_user'];
+$CI =& get_instance();
+$message = "";
+if($_POST){
+  //var_dump($_FILES['photo_ad']);
+  $ad = new stdClass();
+  $ph = new stdClass();
+  $ad->titulo = $_POST['titulo'];
+  $ad->categoria = $_POST['categoria'];
+  $photo = $_FILES['photo_ad'];
+  $ph->imgPath = $_SERVER['DOCUMENT_ROOT']."/itlaBike/adImages/";
+  $ad->precio = $_POST['precio'];
+  $ad->descripcion = $_POST['descripcion'];
+  $ad->idUser = $currentUser->id;
+  $sql = "select * from anuncio where titulo = ?";
+  //Check if the add already exists..
+  $rs = $CI->db->query($sql, array($ad->titulo));
+  $rs = $rs->result();
+  if(count($rs) > 0){
+    $message = "este anuncio ya existe con ese titulo";
+  }
+  else{
+    //Here i verify if the photos are empty
+    if(!empty($photo)){
+      $CI->db->insert('anuncio',$ad);
+      $last_id = $this->db->insert_id();
+      //Get the last inserted id
+      $ph->idAnuncio = $last_id;
+      for($i =0; $i < count($photo['name']);$i++) {
+        $ph->imgContent = $photo['name'][$i];
+        $CI->db->insert('imagenes',$ph);
+        move_uploaded_file($photo['tmp_name'][$i],"$ph->imgPath"."$ph->imgContent");
+      }
+
+    }
+    else{
+      $message = "Esa no es una foto jpeg o png intente denuevo";
+    }
+  }
+}
  ?>
 
  <div class="text-right">
@@ -12,10 +51,10 @@ $currentUser = $_SESSION['itla_bike_user'];
   <legend><h2>Publique su anuncio</h2></legend>
   <div class="row">
     <div class="col-sm-12">
-      <form class="form-horizontal" action="" method="post">
+      <form class="form-horizontal"  enctype="multipart/form-data" action="" method="post">
         <div class="form-group input-group">
-          <label for="nombre" class="input-group-addon bg-green"><i class="fa fa-user"></i> Nombre</label>
-          <input type="text" name="nombre" class="form-control" required>
+          <label for="titulo" class="input-group-addon bg-green"><i class="fa fa-header"></i> Titulo</label>
+          <input type="text" name="titulo" class="form-control" required>
         </div>
           <div class="form-group input-group">
             <label for="categoria" class="input-group-addon bg-green"><i class="fa fa-bars"></i> Categoria</label>
@@ -31,11 +70,12 @@ $currentUser = $_SESSION['itla_bike_user'];
             </select>
           </div>
           <div class="form-group input-group">
-            <label for="photo_ad" class="input-group-addon bg-green"><i class="fa fa-camera"></i> Foto</label>
-            <input type="file" name="photo_ad" class="form-control"  accept="image/*" multiple="true" id="photo_file"required>
-            <div id="message" class="alert alert-danger" style="display:none;">
+            <label for="photo_ad[]" class="input-group-addon bg-green"><i class="fa fa-camera"></i> Foto max 5</label>
+            <input type="file" name="photo_ad[]" class="form-control"  accept="image/*" multiple="true" id="photo_file"required>
+          </div>
 
-            </div>
+          <div id="message" class="alert alert-danger" style="display:none;">
+
           </div>
           <div class="form-group input-group">
             <label for="precio" class="input-group-addon bg-green"><i class="fa fa-usd"></i> Precio</label>
