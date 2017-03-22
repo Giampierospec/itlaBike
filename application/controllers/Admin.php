@@ -42,4 +42,9 @@ class Admin extends CI_Controller{
         $this->load->view('templates/footer');
 
     }
+    //This function will logout the user from the system
+    function logout(){
+      unset($_SESSION['itla_bike_user']);
+      redirect('admin');
+    }
 }
