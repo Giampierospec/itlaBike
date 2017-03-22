@@ -91,6 +91,31 @@ if($_POST){
       </form>
     </div>
   </div>
+  <div id="messagePhp" class="alert alert-danger" style="display:none;">
+    <?php echo $message ?>
+    <script type="text/javascript">
+                  $(document).ready(initMessage);
+                  function initMessage(){
+                    //This will retrieve my variable from php verifying that is not empty
+                    var message = '<?php echo (isset($message)?$message:'') ?>';
+                    if(message != ''){
+                      $("#messagePhp").show(0,messageAppend).addClass('alert-dismissable fade in');
+                    }
+                    else{
+                      $("#messagePhp").hide();
+                    }
+
+                  }
+                    //function to append the desired message
+                    function messageAppend(){
+                      $(message).appendTo('#messagePhp').fadeIn(5000,closeMessage).addClass("animated bounce");
+                    }
+                    function closeMessage(){
+                      var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+                      $(close).appendTo('#messagePhp').fadeIn(5000);
+                    }
+                  </script>
+  </div>
 </div>
 
 <script src="<?php echo base_url('') ?>js/verifyImageQuantity.js" charset="utf-8"></script>
