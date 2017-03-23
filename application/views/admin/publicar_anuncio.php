@@ -28,12 +28,12 @@ if($_POST){
       $CI->db->insert('anuncio',$ad);
       $last_id = $this->db->insert_id();
       //Get the last inserted id
-      $ph->idAnuncio = $last_id;
+      $ph->idAd = $last_id;
       for($i =0; $i < count($photo['name']);$i++) {
         //Here i verify if it is a file and if it is an image
         if($photo["error"][$i] == 0 && ($photo['type'][$i] == 'image/jpeg' || $photo['type'][$i] == 'image/png' )){
           $ph->imgContent = $photo['name'][$i];
-          $CI->db->insert('imagenes',$ph);
+          $CI->db->insert('images',$ph);
           move_uploaded_file($photo['tmp_name'][$i],"$ph->imgPath"."$ph->imgContent");
         }
         //Here i show in case it is not an image of the specified format
