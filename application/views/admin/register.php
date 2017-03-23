@@ -11,6 +11,7 @@ if($_POST){
     $sql = 'select * from usuario where correo = ?';
     $rs = $CI->db->query($sql, array($f->correo));
     $rs = $rs->result();
+    //Here i can verify if the user really exists
     if(count($rs) > 0){
 
         ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2017 at 12:58 PM
+-- Generation Time: Mar 23, 2017 at 01:16 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -41,7 +41,8 @@ CREATE TABLE `anuncio` (
 
 INSERT INTO `anuncio` (`id`, `titulo`, `categoria`, `descripcion`, `precio`, `idUser`) VALUES
 (2, 'Hi everyone!', 'mountain_bike', 'Ok', 4444, 40),
-(3, 'Just checking!', 'mountain_bike', 'Ok', 4444, 40);
+(3, 'Just checking!', 'mountain_bike', 'Ok', 4444, 40),
+(4, 'Hola', 'estatica', 'Ok', 444, 42);
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,8 @@ INSERT INTO `images` (`id`, `imgPath`, `imgContent`, `idAd`) VALUES
 (1, 'C:/xampp/htdocs/itlaBike/adImages/', 'estadoCuenta.png', 3),
 (2, 'C:/xampp/htdocs/itlaBike/adImages/', 'Laptop.png', 3),
 (3, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona.png', 3),
-(4, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 3);
+(4, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 3),
+(5, 'C:/xampp/htdocs/itlaBike/adImages/', 'gitHub_profile.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -85,8 +87,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`, `bloqueado`) VALUES
-(41, 'Giampiero Specogna', 'giampi_12@hotmail.com', NULL, NULL),
-(42, 'giampiero', 'giampierospec@gmail.com', '202cb962ac59075b964b07152d234b70', NULL);
+(42, 'giampiero', 'giampierospec@gmail.com', '202cb962ac59075b964b07152d234b70', NULL),
+(43, 'Giampiero Specogna', 'giampi_12@hotmail.com', '202cb962ac59075b964b07152d234b70', NULL);
 
 --
 -- Indexes for dumped tables
@@ -119,17 +121,17 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- Constraints for dumped tables
 --
