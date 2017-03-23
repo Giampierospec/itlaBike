@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['facebook_app_id']              = '1823829894500693';
 $config['facebook_app_secret']          = '02e6a6b268cc166d162a8c49d3197f17';
 $config['facebook_login_type']          = 'web';
-$config['facebook_login_redirect_url']  = 'admin/publicar_anuncio';
+$config['facebook_login_redirect_url']  = 'admin/';
 $config['facebook_logout_redirect_url'] = 'admin/register';
 $config['facebook_permissions']         = array('public_profile', 'publish_actions', 'email');
 $config['facebook_graph_version']       = 'v2.6';
