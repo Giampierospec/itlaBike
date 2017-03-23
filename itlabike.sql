@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 15, 2017 at 04:11 AM
+-- Host: 127.0.0.1
+-- Generation Time: Mar 23, 2017 at 01:13 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,57 @@ SET time_zone = "+00:00";
 --
 -- Database: `itlabike`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `anuncio`
+--
+
+CREATE TABLE `anuncio` (
+  `id` int(11) NOT NULL,
+  `titulo` text,
+  `categoria` varchar(45) DEFAULT NULL,
+  `descripcion` text,
+  `precio` double DEFAULT NULL,
+  `idUser` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `anuncio`
+--
+
+INSERT INTO `anuncio` (`id`, `titulo`, `categoria`, `descripcion`, `precio`, `idUser`) VALUES
+(1, 'hhh', 'estatica', 'ok', 44, 36),
+(2, 'Jasla', 'mountain_bike', 'ok', 4444, 36),
+(3, 'Jaska', 'mountain_bike', 'ok que', 444, 36),
+(4, 'jola', 'mountain_bike', 'raios', 444, 36),
+(5, 'Jaspa', 'cruiser', 'ok dale', 444, 36),
+(6, 'Koala', 'mountain_bike', 'ok', 444, 36),
+(8, 'casino', 'electrica', 'ok', 4444, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `id` int(11) NOT NULL,
+  `imgPath` varchar(45) DEFAULT NULL,
+  `imgContent` varchar(45) DEFAULT NULL,
+  `idAnuncio` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `imagenes`
+--
+
+INSERT INTO `imagenes` (`id`, `imgPath`, `imgContent`, `idAnuncio`) VALUES
+(11, 'C:/xampp/htdocs/itlaBike/adImages/', '001.JPG', 6),
+(12, 'C:/xampp/htdocs/itlaBike/adImages/', '002.JPG', 6),
+(13, 'C:/xampp/htdocs/itlaBike/adImages/', '003.JPG', 6),
+(14, 'C:/xampp/htdocs/itlaBike/adImages/', 'Bruno Specogna.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -68,11 +119,28 @@ INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`) VALUES
 (30, 'Hommy De Jesus', 'hdejesus@gmail.com', '123'),
 (31, 'Hommy De Jesus', 'hdejesus@gmail.com', '123'),
 (32, 'Hommy De Jesus', 'hdejesus@gmail.com', '123'),
-(33, 'Hommy De Jesus', 'hdejesus@gmail.com', '123');
+(33, 'Hommy De Jesus', 'hdejesus@gmail.com', '123'),
+(34, 'Giampiero Specogna', 'giampi_12@hotmail.com', NULL),
+(35, 'hommy', 'hdejesus@gmail.com', '123'),
+(36, 'giampiero', 'giampierospec@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `anuncio`
+--
+ALTER TABLE `anuncio`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_user_idx` (`idUser`);
+
+--
+-- Indexes for table `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_anuncio_idx` (`idAnuncio`);
 
 --
 -- Indexes for table `usuario`
@@ -85,10 +153,36 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `anuncio`
+--
+ALTER TABLE `anuncio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `anuncio`
+--
+ALTER TABLE `anuncio`
+  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`idUser`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `fk_id_anuncio` FOREIGN KEY (`idAnuncio`) REFERENCES `anuncio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
