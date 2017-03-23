@@ -1,9 +1,8 @@
-var photo = document.getElementById("photo_file");
-var btn = document.getElementById("btn_publish");
+var photo = document.getElementById('photo_file');
 //This function will verify if the user is entering in fact 5 images or less
 $(photo).change(function() {
   if(this.files.length > 5){
-      $("#message").show(0,messageAppend).addClass('alert-dismissable fade in');
+      $('#message').show(0,messageAppend).addClass('alert-dismissable fade in');
   }
 });
 function messageAppend(){
@@ -14,9 +13,9 @@ function closeAppear(){
    $(close).appendTo('#message').fadeIn(3000);
 }
 //This will verify in case it is bigger to don't post it
-$("form").submit(function() {
-  if(photo.files.length > 5){
-    alert("El límite de imágenes es 5");
+$('form').submit(function () {
+  if(photo.files.length > 5) {
+    alert('El límite de imágenes es 5');
     return false;
   }
 
