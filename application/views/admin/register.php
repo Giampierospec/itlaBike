@@ -1,7 +1,7 @@
 <?php
 
 if($_POST){
-    
+
     $CI =& get_instance();
     $f = new stdClass();
     $f->nombre = $_POST['name'];
@@ -12,8 +12,7 @@ if($_POST){
     $rs = $CI->db->query($sql, array($f->correo));
     $rs = $rs->result();
     if(count($rs) > 0){
-        $_SESSION['itla_bike_user'] = $rs[0];
-        
+
         ?>
   <!-- In this script i put a message that will fade in 5 seconds -->
   <script type="text/javascript">
@@ -32,14 +31,13 @@ if($_POST){
     }
   </script>
   <?php
-        
     }
     else{
         $CI->db->insert('usuario',$f);
         redirect('admin');
     }
-    
-    
+
+
 }
 ?>
 

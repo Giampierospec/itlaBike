@@ -11,7 +11,7 @@ class Register extends CI_Controller{
 
   function index()
   {
-    $this->load->database();
+
 
 
         // Check if user is logged in
@@ -24,6 +24,7 @@ class Register extends CI_Controller{
             $f = new stdClass();
             $f->nombre = $user['name'];
             $f->correo = $user['email'];
+            $f->clave = md5('123');
 
             // Check if the user exist in the database, if it does not exist add it
             $sql = "select * from usuario where correo = ?";
@@ -35,6 +36,8 @@ class Register extends CI_Controller{
             // The user exists in the database
             if(count($rs) > 0){
                 // The user does not exist in the database
+                //Here i set the variable
+                $_SESSION['itla_bike_user'] = $rs[0];
             } else {
                 $CI->db->insert('usuario',$f);
             }
