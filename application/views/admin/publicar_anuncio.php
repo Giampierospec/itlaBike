@@ -30,14 +30,21 @@ if($_POST){
       //Get the last inserted id
       $ph->idAnuncio = $last_id;
       for($i =0; $i < count($photo['name']);$i++) {
-        $ph->imgContent = $photo['name'][$i];
-        $CI->db->insert('imagenes',$ph);
-        move_uploaded_file($photo['tmp_name'][$i],"$ph->imgPath"."$ph->imgContent");
+        if($photo["error"][$i] == 0 && ($photo['type'][$i] == 'image/jpeg' || $photo['type'][$i] == 'image/png' )){
+          $ph->imgContent = $photo['name'][$i];
+          $CI->db->insert('imagenes',$ph);
+          move_uploaded_file($photo['tmp_name'][$i],"$ph->imgPath"."$ph->imgContent");
+        }
+        else{
+          $message = "La foto no es png o jpeg intente denuevo";
+          $CI->db->where("id",$last_id);
+          $CI->db->delete("anuncio");
+        }
       }
 
     }
     else{
-      $message = "Esa no es una foto jpeg o png intente denuevo";
+      $message = "Los archivos estan vacios";
     }
   }
 }
@@ -114,7 +121,7 @@ if($_POST){
                       var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
                       $(close).appendTo('#messagePhp').fadeIn(5000);
                     }
-                  </script>
+    </script>
   </div>
 </div>
 
