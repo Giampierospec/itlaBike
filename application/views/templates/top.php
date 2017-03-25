@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="<?php echo base_url('')?>css/main.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
+<link rel="stylesheet" href="<?php echo base_url('') ?>css/user.css">
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
