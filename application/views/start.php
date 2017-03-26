@@ -1,56 +1,62 @@
 <h1>Ultimos Anuncios</h1>
 <!-- This is placeholder info for the page we can come back and change it later -->
 <!-- This is the main page -->
-<div class="jumbotron redcd_jb">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="big-box">
-          <img src="http://placehold.it/350x150?text=coming-soon" alt="photos coming soon">
-      </div>
-      </div>
-      <div class="col-sm-6">
-        <h2>Nombre Producto</h2>
-        <div class="row">
-          <div class="col-sm-12">
-          <h2>Descripción producto</h2>
-        </div>
-      </div>
-      </div>
-  </div>
-</div>
-<!-- In this jumbotrons we can put our info -->
-<div class="jumbotron redcd_jb">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="big-box">
-          <img src="http://placehold.it/350x150?text=coming-soon" alt="photos coming soon">
-      </div>
-      </div>
-      <div class="col-sm-6">
-        <h2>Nombre Producto</h2>
-        <div class="row">
-          <div class="col-sm-12">
-          <h2>Descripción producto</h2>
-        </div>
-      </div>
-      </div>
-  </div>
-</div>
+<div class="row">
 
-<div class="jumbotron redcd_jb">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="big-box">
-          <img src="http://placehold.it/350x150?text=coming-soon" alt="photos coming soon">
-      </div>
-      </div>
-      <div class="col-sm-6">
-        <h2>Nombre Producto</h2>
-        <div class="row">
-          <div class="col-sm-12">
-          <h2>Descripción producto</h2>
-        </div>
-      </div>
-      </div>
-  </div>
+  <?php
+$url = base_url('');
+
+
+function cargar_anuncios(){
+    $CI =& get_instance();
+    $sql = "select * from anuncio";
+    $rs = $CI->db->query($sql);
+    return $rs->result();
+}
+
+function cargar_fotos(){
+    $CI =& get_instance();
+    $sql = "select * from images";
+    $rs = $CI->db->query($sql);
+    return $rs->result();
+}
+
+$anuncios = cargar_anuncios();
+$fotos = cargar_fotos();
+
+foreach($anuncios as $anuncio){
+    
+    foreach($fotos as $foto){
+        
+        $path = $foto->imgPath;
+        $content = $foto->imgContent;
+        
+        $fullPath= $path . $content;
+    }
+    
+    echo "<div class='jumbotron redcd_jb'>
+    <div class='row'>
+    <div class='col-sm-6'>
+    <div class='big-box'>
+    <a href='{$url}admin/ver_anuncio/{$anuncio->id}'>
+    <img src='{$fullPath}' alt='{$anuncio->titulo}'>
+    </div>
+    </div>
+    <div class='col-sm-6'>
+    <h2>{$anuncio->titulo}</h2>
+    <div class='row'>
+    <div class='col-sm-12'>
+    <h2>$anuncio->descripcion</h2>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>";
+}
+
+
+
+?>
+
 </div>
