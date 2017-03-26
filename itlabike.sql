@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2017 at 12:23 AM
+-- Generation Time: Mar 26, 2017 at 07:56 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -42,7 +42,9 @@ CREATE TABLE `anuncio` (
 INSERT INTO `anuncio` (`id`, `titulo`, `categoria`, `descripcion`, `precio`, `idUser`) VALUES
 (2, 'Hi everyone!', 'mountain_bike', 'Ok', 4444, 40),
 (3, 'Just checking!', 'mountain_bike', 'Ok', 4444, 40),
-(4, 'Hola', 'estatica', 'Ok', 444, 42);
+(4, 'Hola', 'estatica', 'Ok', 444, 42),
+(5, 'Mountain Bike', 'mountain_bike', 'Son mountain Bikes', 444.45, 43),
+(6, 'Caminadora', 'estatica', 'es una caminadora', 444, 43);
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,14 @@ INSERT INTO `images` (`id`, `imgPath`, `imgContent`, `idAd`) VALUES
 (2, 'C:/xampp/htdocs/itlaBike/adImages/', 'Laptop.png', 3),
 (3, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona.png', 3),
 (4, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 3),
-(5, 'C:/xampp/htdocs/itlaBike/adImages/', 'gitHub_profile.jpg', 4);
+(5, 'C:/xampp/htdocs/itlaBike/adImages/', 'gitHub_profile.jpg', 4),
+(6, 'C:/xampp/htdocs/itlaBike/adImages/', 'Laptop.png', 5),
+(7, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona.png', 5),
+(8, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 5),
+(9, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros_2.png', 5),
+(10, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 6),
+(11, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona - Copy.png', 6),
+(12, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros - Copy.png', 6);
 
 -- --------------------------------------------------------
 
@@ -121,12 +130,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
