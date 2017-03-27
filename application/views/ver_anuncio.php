@@ -19,9 +19,9 @@ $rs2 = $rs2->result();
 
 $image = $rs2[0];
 
-$path = $image->imgPath;
+$path = base_url('')."adImages/";
 $content = $image->imgContent;
-$fullPath= $path . $content;
+$fullPath= $path.$content;
 ?>
 
   <div class='jumbotron redcd_jb'>

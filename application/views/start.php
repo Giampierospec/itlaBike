@@ -25,15 +25,15 @@ $anuncios = cargar_anuncios();
 $fotos = cargar_fotos();
 
 foreach($anuncios as $anuncio){
-    
+
     foreach($fotos as $foto){
-        
-        $path = $foto->imgPath;
+
+        $path = base_url('')."adImages/";
         $content = $foto->imgContent;
-        
+
         $fullPath= $path . $content;
     }
-    
+
     echo "<div class='jumbotron redcd_jb'>
     <div class='row'>
     <div class='col-sm-6'>
@@ -47,7 +47,7 @@ foreach($anuncios as $anuncio){
     <div class='row'>
     <div class='col-sm-12'>
     <h2>$anuncio->descripcion</h2>
-    
+
     </div>
     </div>
     </div>
