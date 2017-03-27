@@ -4,13 +4,13 @@ date_default_timezone_set('America/Santo_Domingo');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Start extends CI_Controller{
-    
+
     public function __construct()
     {
         parent::__construct();
         //Codeigniter : Write Less Do More
     }
-    
+
     function index()
     {
         //The first and third line imports the templates
@@ -36,5 +36,19 @@ class Start extends CI_Controller{
         $this->load->view('categorias');
         $this->load->view('templates/footer');
     }
-    
+    function ver_anuncio($id=0) {
+        if($id === 0)
+        {
+            redirect('start');
+        }
+        $d = array();
+        $d['id'] = $id;
+
+        $this->load->view('templates/top');
+        $this->load->view('ver_anuncio', $d);
+        $this->load->view('templates/footer');
+    }
+
+
+
 }

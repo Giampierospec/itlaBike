@@ -14,45 +14,51 @@ function cargar_anuncios(){
     return $rs->result();
 }
 
-function cargar_fotos(){
+function cargar_fotos($idAnuncio){
     $CI =& get_instance();
-    $sql = "select * from images";
-    $rs = $CI->db->query($sql);
-    return $rs->result();
+    $sql = "select * from images where idAd = ?";
+    $rs = $CI->db->query($sql,array($idAnuncio));
+    $rs = $rs->result();
+    $result = $rs[0];
+    return $result;
+}
+//added this function to show the user
+function cargar_usuarios($idUser){
+  $CI =& get_instance();
+  $sql = "select * from usuario where id = ?";
+  $rs = $CI->db->query($sql,array($idUser));
+  $rs = $rs->result();
+  $result = $rs[0];
+  return $result;
 }
 
 $anuncios = cargar_anuncios();
-$fotos = cargar_fotos();
+
 
 foreach($anuncios as $anuncio){
+$fotos = cargar_fotos($anuncio->id);
 
-    foreach($fotos as $foto){
-
+$user = cargar_usuarios($anuncio->idUser);
         $path = base_url('')."adImages/";
-        $content = $foto->imgContent;
+        $content = $fotos->imgContent;
 
         $fullPath= $path . $content;
-    }
 
-    echo "<div class='jumbotron redcd_jb'>
-    <div class='row'>
-    <div class='col-sm-6'>
-    <div class='big-box'>
-    <a href='{$url}admin/ver_anuncio/{$anuncio->id}'>
-    <img src='{$fullPath}' alt='{$anuncio->titulo}'>
-    </div>
-    </div>
-    <div class='col-sm-6'>
-    <h2>{$anuncio->titulo}</h2>
-    <div class='row'>
-    <div class='col-sm-12'>
-    <h2>$anuncio->descripcion</h2>
+    echo "<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+    <a href='{$url}start/ver_anuncio/{$anuncio->id}'>
+      <div class='thumbnail'>
+        <img src='{$fullPath}' alt='foto'/>
+        <div class='caption'>
+          <p>Publicante: {$user->nombre}</p>
+          <p>Titulo Anuncio: {$anuncio->titulo}</p>
+        </div>
+      </div></a>
 
     </div>
     </div>
-    </div>
-    </div>
-    </div>";
+
+    ";
 }
 
 

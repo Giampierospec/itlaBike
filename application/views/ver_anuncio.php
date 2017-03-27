@@ -1,9 +1,4 @@
 <?php
-//The first and third line imports the templates
-// which are in the templates folder under views.
-// the middle one is to render the view you want to see.
-$this->load->view('templates/top');
-$this->load->view('templates/footer');
 
 $CI =& get_instance();
 $sql = "select * from anuncio where id = ?";
@@ -51,3 +46,5 @@ $fullPath= $path.$content;
           </div>
         </div>
       </div>
+    </div>
+  </div>

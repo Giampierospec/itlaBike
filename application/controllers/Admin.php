@@ -13,7 +13,7 @@ class Admin extends CI_Controller{
             redirect('admin/login');
         }
     }
-    
+
     function index()
     {
         //The first and third line imports the templates
@@ -31,7 +31,7 @@ class Admin extends CI_Controller{
         $this->load->view("admin/publicar_anuncio");
         $this->load->view('templates/footer');
     }
-    
+
     function login(){
         //The first and third line imports the templates
         // which are in the templates folder under views.
@@ -39,25 +39,14 @@ class Admin extends CI_Controller{
         $this->load->view('templates/top');
         $this->load->view("admin/login");
         $this->load->view('templates/footer');
-        
+
     }
     //This function will logout the user from the system
     function logout(){
         $url = base_url('');
-        
+
         unset($_SESSION['itla_bike_user']);
         redirect('http://localhost/itlaBike/');
     }
-    
-    function ver_anuncio($id=0) {
-        if($id === 0)
-        {
-            redirect('admin');
-        }
-        $d = array();
-        $d['id'] = $id;
-        
-        $this->load->view('ver_anuncio', $d);
-    }
-    
-}
+
+  }
