@@ -43,7 +43,7 @@ if($_POST){
                     $CI->db->delete("anuncio");
                 }
             }
-            
+
         }
         else{
             $message = "Los archivos estan vacios";
@@ -72,7 +72,7 @@ if($_POST){
             <select class="form-control" name="categoria" required>
               <option value="" disabled selected="">Escoja una categoria</option>
               <option value="BMX">BMX</option>
-              <option value="mountain_bike">Mountain Bike</option>
+              <option value="mountain bike">Mountain Bike</option>
               <option value="estatica">Estatica</option>
               <option value="electrica">Electrica</option>
               <option value="cruiser">Cruiser</option>
