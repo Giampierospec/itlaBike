@@ -14,9 +14,10 @@ $rs2 = $rs2->result();
 
 $image = $rs2[0];
 
-$path = base_url('')."adImages/";
+$path = base_url('')."bikeImages/";
 $content = $image->imgContent;
 $fullPath= $path.$content;
+$categoria = getCategoriaById($anuncio->idCate);
 ?>
 
   <div class='jumbotron redcd_jb'>
@@ -27,8 +28,8 @@ $fullPath= $path.$content;
             <h1><?php echo $anuncio->titulo ?></h1>
 
           </div>
-
-          <h1><?php echo $anuncio->categoria ?>
+              
+          <h1><?php echo $categoria->categoria ?>
 </h1>
           <div class='row'>
             <div class='col-sm-12'>

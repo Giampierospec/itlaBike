@@ -39,7 +39,7 @@ foreach($anuncios as $anuncio){
 $fotos = cargar_fotos($anuncio->id);
 
 $user = cargar_usuarios($anuncio->idUser);
-        $path = base_url('')."adImages/";
+        $path = base_url('')."bikeImages/";
         $content = $fotos->imgContent;
 
         $fullPath= $path . $content;
@@ -57,7 +57,6 @@ $user = cargar_usuarios($anuncio->idUser);
 
     </div>
     </div>
-
     ";
 }
 

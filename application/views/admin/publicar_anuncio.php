@@ -9,12 +9,15 @@ if($_POST){
     $ad = new stdClass();
     $ph = new stdClass();
     $ad->titulo = $_POST['titulo'];
-    $ad->categoria = $_POST['categoria'];
+    $categoria = $_POST['categoria'];
+    //This method will retrieve the category
+    $categoria = getCategoriaByName($categoria);
     $photo = $_FILES['photo_ad'];
-    $ph->imgPath = $_SERVER['DOCUMENT_ROOT']."/itlaBike/adImages/";
+    $imgPath = $_SERVER['DOCUMENT_ROOT']."/itlaBike/bikeImages/";
     $ad->precio = $_POST['precio'];
     $ad->descripcion = $_POST['descripcion'];
     $ad->idUser = $currentUser->id;
+    $ad->idCate = $categoria->id;
     $sql = "select * from anuncio where titulo = ?";
     //Check if the add already exists..
     $rs = $CI->db->query($sql, array($ad->titulo));
@@ -34,7 +37,7 @@ if($_POST){
                 if($photo["error"][$i] == 0 && ($photo['type'][$i] == 'image/jpeg' || $photo['type'][$i] == 'image/png' )){
                     $ph->imgContent = $photo['name'][$i];
                     $CI->db->insert('images',$ph);
-                    move_uploaded_file($photo['tmp_name'][$i],"$ph->imgPath"."$ph->imgContent");
+                    move_uploaded_file($photo['tmp_name'][$i],"$imgPath"."$ph->imgContent");
                 }
                 //Here i show in case it is not an image of the specified format
                 else{
@@ -71,13 +74,12 @@ if($_POST){
             <label for="categoria" class="input-group-addon bg-green"><i class="fa fa-bars"></i> Categoria</label>
             <select class="form-control" name="categoria" required>
               <option value="" disabled selected="">Escoja una categoria</option>
-              <option value="BMX">BMX</option>
-              <option value="mountain bike">Mountain Bike</option>
-              <option value="estatica">Estatica</option>
-              <option value="electrica">Electrica</option>
-              <option value="cruiser">Cruiser</option>
-              <option value="chopper">Chopper</option>
-              <option value="tandem">Tandem</option>
+              <?php 
+              $cate = getAllCategorias();
+              foreach ($cate as $ct) {
+                echo "<option value='{$ct->categoria}'>{$ct->categoria}</option>";
+              }
+              ?>
             </select>
           </div>
           <div class="form-group input-group">
