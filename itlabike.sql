@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2017 at 08:47 PM
+-- Generation Time: Mar 29, 2017 at 09:00 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -44,7 +44,8 @@ INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCat
 (2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1),
 (3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3),
 (4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4),
-(5, 'Bicicleta Cruiser', 'Te permitira andar en los mas cotizados lugares', 500.85, 3, 5);
+(5, 'Bicicleta Cruiser', 'Te permitira andar en los mas cotizados lugares', 500.85, 3, 5),
+(6, 'La bicicleta estatica', 'Esta bicicleta es tan comoda que no querras salir de tu casa.', 780.85, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,9 @@ INSERT INTO `images` (`id`, `imgContent`, `idAd`) VALUES
 (12, 'electrica-3.png', 4),
 (13, 'cruiser-1.png', 5),
 (14, 'cruiser-2.png', 5),
-(15, 'cruiser-3.png', 5);
+(15, 'cruiser-3.png', 5),
+(16, 'estatica-1.png', 6),
+(17, 'estatica-2.png', 6);
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `categoria`
 --
@@ -175,7 +178,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
