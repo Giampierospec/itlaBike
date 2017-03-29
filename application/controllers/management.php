@@ -11,9 +11,8 @@ class Management extends CI_Controller{
     
     function index()
     {
-        $this->load->database();
-        $this->load->view('Management');
         $this->load->view('templates/top');
+        $this->load->view('management');
         $this->load->view('templates/footer');
     }
 }

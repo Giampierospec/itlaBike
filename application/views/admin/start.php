@@ -14,8 +14,11 @@ $anuncios = getadByUser($currentUser->id);
     <div class="row">
 
       <div class="col-sm-4">
-        <div class="thumbnail bs-shad-user">
-          <div class="caption">
+        <div class="panel panel-default bs-shad-user">
+          <div class="panel-heading">
+            <h2>Información del Usuario</h2>
+          </div>
+          <div class="panel-body">
             <p>Email:
               <?php echo $currentUser->correo ?>
             </p>
@@ -47,7 +50,7 @@ if(!empty($anuncios)){
         <td>{$adVer->id}</td>
         <td>{$adVer->titulo}</td>
         <td>{$categoria->categoria}</td>
-        <td>{$adVer->precio}</td>
+        <td>{$adVer->precio}$</td>
         <td>{$adVer->descripcion}</td>
         </tr>";
     }

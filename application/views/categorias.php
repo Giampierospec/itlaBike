@@ -18,7 +18,7 @@ $categorias = getAllCategorias();
                 $("#catRow").hide().append("\
                 <div class='col-sm-4'>\
                  <a href='"+relativePath+"start/ver_categoria/"+cate[i].id+"' class='text-muted'>\
-                <div class='panel panel-default'>\
+                <div class='panel panel-default bs-shad-user'>\
                 <div class='panel-heading'><h1>"+
                 cate[i].categoria+"</h1></div>\
                 <div class='panel-body'>\
