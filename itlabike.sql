@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2017 at 05:05 PM
+-- Generation Time: Mar 29, 2017 at 08:47 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -54,19 +54,21 @@ INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCat
 
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
-  `categoria` text
+  `categoria` text,
+  `imgContent` text,
+  `descripcion` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categoria`
 --
 
-INSERT INTO `categoria` (`id`, `categoria`) VALUES
-(1, 'BMX'),
-(2, 'Mountain Bike'),
-(3, 'Estatica'),
-(4, 'Electrica'),
-(5, 'Cruiser');
+INSERT INTO `categoria` (`id`, `categoria`, `imgContent`, `descripcion`) VALUES
+(1, 'BMX', 'bmx-1.jpg', 'Bicicletas que se utilizan para competencias'),
+(2, 'Mountain Bike', 'mountain_bike-1.jpg', 'Para los terrenos mas duros'),
+(3, 'Estatica', 'estatica-1.png', 'Para ejercitarte en casa'),
+(4, 'Electrica', 'electrica-1.png', 'Para tener los poderes de un motor.'),
+(5, 'Cruiser', 'cruiser-1.png', 'Estas bicicletas, como su nombre lo indica, son diseñadas para disfrutar cómodamente de la ciudad.');
 
 -- --------------------------------------------------------
 
