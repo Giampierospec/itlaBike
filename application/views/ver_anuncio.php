@@ -39,12 +39,13 @@ $fullPath= $path.$content;
               <div class='col-sm-12'>
                 <h1><?php echo $anuncio->precio ?></h1>
 
-                <img src="<?php echo$fullPath;?>" />
+                <img src="<?php echo$fullPath;?>. " ' height='500 ' width='500 '>
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
