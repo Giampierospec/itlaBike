@@ -40,7 +40,7 @@ $categoria = getCategoriaById($anuncio->idCate);
               <div class='col-sm-12'>
                 <h1><?php echo $anuncio->precio ?></h1>
 
-                <img src="<?php echo$fullPath;?>" />
+                <img src="<?php echo$fullPath;?>" class="img-responsive"/>
 
               </div>
             </div>
