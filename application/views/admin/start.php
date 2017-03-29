@@ -15,7 +15,6 @@ $anuncios = getadByUser($currentUser->id);
 
       <div class="col-sm-4">
         <div class="thumbnail bs-shad-user">
-          <img src="http://www.freeiconspng.com/uploads/person-icon--icon-search-engine-3.png" alt="<? php echo $currentUser->nombre?>" class="img-responsive">
           <div class="caption">
             <p>Email:
               <?php echo $currentUser->correo ?>
