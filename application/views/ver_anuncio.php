@@ -22,18 +22,19 @@ $user = getUsuariosById($anuncio->idUser);
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
     <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1><?php echo $anuncio->titulo ?></h1>
-    </div>
-      <div id="imageSliding" class="panel-body"> 
+      <div class="panel-heading">
+        <h1><?php echo $anuncio->titulo ?></h1>
       </div>
-      <div class="panel-footer">
-        <h3>Vendedor: <?php echo $user->nombre?></h3>
-        <h3>Precio: <?php echo $anuncio->precio?> $USD</h3>
-        <h3>Categoria: <?php echo $categoria->categoria?></h3>
-        <h3>Descripcion: <?php echo $anuncio->descripcion?></h3>
-        <h3>
-      </div>
+        <div id="imageSliding" class="panel-body"> 
+
+        </div>
+        <div class="panel-footer">
+          <h3>Vendedor: <?php echo $user->nombre?></h3>
+          <h3>Precio: <?php echo $anuncio->precio?> $USD</h3>
+          <h3>Categoria: <?php echo $categoria->categoria?></h3>
+          <h3>Descripcion: <?php echo $anuncio->descripcion?></h3>
+          <h3>
+        </div>
   </div>
   </div>
 </div>
