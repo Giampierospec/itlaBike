@@ -6,38 +6,15 @@
 $url = base_url('');
 
 
-function cargar_anuncios(){
-    $CI =& get_instance();
-    $sql = "select * from anuncio";
-    $rs = $CI->db->query($sql);
-    return $rs->result();
-}
 
-function cargar_fotos($idAnuncio){
-    $CI =& get_instance();
-    $sql = "select * from images where idAd = ?";
-    $rs = $CI->db->query($sql,array($idAnuncio));
-    $rs = $rs->result();
-    $result = $rs[0];
-    return $result;
-}
-//added this function to show the user
-function cargar_usuarios($idUser){
-  $CI =& get_instance();
-  $sql = "select * from usuario where id = ?";
-  $rs = $CI->db->query($sql,array($idUser));
-  $rs = $rs->result();
-  $result = $rs[0];
-  return $result;
-}
 
 $anuncios = cargar_anuncios();
 
 
 foreach($anuncios as $anuncio){
-$fotos = cargar_fotos($anuncio->id);
+$fotos = getPhotosByAd($anuncio->id);
 
-$user = cargar_usuarios($anuncio->idUser);
+$user = getUsuariosById($anuncio->idUser);
         $path = base_url('')."bikeImages/";
         $content = $fotos->imgContent;
 

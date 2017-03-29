@@ -21,6 +21,39 @@ function getAllCategorias(){
   $rs = $CI->db->query($sql);
   return $rs->result();
 }
+//Here i get the adds by its category
+function getAdByCategoria($idCate){
+$CI =& get_instance();
+  $sql = "select * from anuncio where idCate = ?";
+  $rs = $CI->db->query($sql,array($idCate));
+  return $rs->result();
+}
+//Added this function to get the user
+function getUsuariosById($id){
+   $CI =& get_instance();
+  $sql = "select * from usuario where id = ?";
+  $rs = $CI->db->query($sql,array($id));
+  $rs = $rs->result();
+  $result = $rs[0];
+  return $result;
+
+}
+//This will retrieve all photos by advertisement
+function getPhotosByAd($idAnuncio){
+    $CI =& get_instance();
+    $sql = "select * from images where idAd = ?";
+    $rs = $CI->db->query($sql,array($idAnuncio));
+    $rs = $rs->result();
+    $result = $rs[0];
+    return $result;
+}
+//Method to load all the ads
+function cargar_anuncios(){
+    $CI =& get_instance();
+    $sql = "select * from anuncio";
+    $rs = $CI->db->query($sql);
+    return $rs->result();
+}
 //Method to get categories by Id
 function getCategoriaById($idCate){
   
