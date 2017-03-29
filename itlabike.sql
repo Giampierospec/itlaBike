@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2017 at 07:56 PM
+-- Generation Time: Mar 29, 2017 at 05:05 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -29,22 +29,44 @@ SET time_zone = "+00:00";
 CREATE TABLE `anuncio` (
   `id` int(11) NOT NULL,
   `titulo` text,
-  `categoria` varchar(45) DEFAULT NULL,
   `descripcion` text,
   `precio` double DEFAULT NULL,
-  `idUser` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idUser` int(11) NOT NULL,
+  `idCate` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `anuncio`
 --
 
-INSERT INTO `anuncio` (`id`, `titulo`, `categoria`, `descripcion`, `precio`, `idUser`) VALUES
-(2, 'Hi everyone!', 'mountain_bike', 'Ok', 4444, 40),
-(3, 'Just checking!', 'mountain_bike', 'Ok', 4444, 40),
-(4, 'Hola', 'estatica', 'Ok', 444, 42),
-(5, 'Mountain Bike', 'mountain_bike', 'Son mountain Bikes', 444.45, 43),
-(6, 'Caminadora', 'estatica', 'es una caminadora', 444, 43);
+INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCate`) VALUES
+(1, 'Mountain Bike aro 20', 'Esta bicicleta es una mountain bike con aro 20', 444.5, 1, 2),
+(2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1),
+(3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3),
+(4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4),
+(5, 'Bicicleta Cruiser', 'Te permitira andar en los mas cotizados lugares', 500.85, 3, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `id` int(11) NOT NULL,
+  `categoria` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `categoria`) VALUES
+(1, 'BMX'),
+(2, 'Mountain Bike'),
+(3, 'Estatica'),
+(4, 'Electrica'),
+(5, 'Cruiser');
 
 -- --------------------------------------------------------
 
@@ -54,28 +76,30 @@ INSERT INTO `anuncio` (`id`, `titulo`, `categoria`, `descripcion`, `precio`, `id
 
 CREATE TABLE `images` (
   `id` int(11) NOT NULL,
-  `imgPath` text,
   `imgContent` text,
   `idAd` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`id`, `imgPath`, `imgContent`, `idAd`) VALUES
-(1, 'C:/xampp/htdocs/itlaBike/adImages/', 'estadoCuenta.png', 3),
-(2, 'C:/xampp/htdocs/itlaBike/adImages/', 'Laptop.png', 3),
-(3, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona.png', 3),
-(4, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 3),
-(5, 'C:/xampp/htdocs/itlaBike/adImages/', 'gitHub_profile.jpg', 4),
-(6, 'C:/xampp/htdocs/itlaBike/adImages/', 'Laptop.png', 5),
-(7, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona.png', 5),
-(8, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 5),
-(9, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros_2.png', 5),
-(10, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros.png', 6),
-(11, 'C:/xampp/htdocs/itlaBike/adImages/', 'Persona - Copy.png', 6),
-(12, 'C:/xampp/htdocs/itlaBike/adImages/', 'PolizadeSeguros - Copy.png', 6);
+INSERT INTO `images` (`id`, `imgContent`, `idAd`) VALUES
+(1, 'mountain_bike-1.jpg', 1),
+(2, 'mountain_bike-2.png', 1),
+(3, 'mountain_bike-2.png', 1),
+(4, 'bmx-1.jpg', 2),
+(5, 'bmx-2.png', 2),
+(6, 'bmx-3.png', 2),
+(7, 'estatica-1.png', 3),
+(8, 'estatica-2.png', 3),
+(9, 'estatica-3.png', 3),
+(10, 'electrica-1.png', 4),
+(11, 'electrica-2.png', 4),
+(12, 'electrica-3.png', 4),
+(13, 'cruiser-1.png', 5),
+(14, 'cruiser-2.png', 5),
+(15, 'cruiser-3.png', 5);
 
 -- --------------------------------------------------------
 
@@ -85,19 +109,20 @@ INSERT INTO `images` (`id`, `imgPath`, `imgContent`, `idAd`) VALUES
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
-  `correo` varchar(30) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
   `clave` varchar(50) DEFAULT NULL,
   `bloqueado` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`, `bloqueado`) VALUES
-(42, 'giampiero', 'giampierospec@gmail.com', '202cb962ac59075b964b07152d234b70', NULL),
-(43, 'Giampiero Specogna', 'giampi_12@hotmail.com', '202cb962ac59075b964b07152d234b70', NULL);
+(1, 'Giampiero Specogna', 'giampi_12@hotmail.com', '202cb962ac59075b964b07152d234b70', NULL),
+(2, 'Nestor De La Cruz', 'nestordelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', NULL),
+(3, 'Misael Maximiliam Mora Valerio', 'misael@gmail.com', '202cb962ac59075b964b07152d234b70', NULL);
 
 --
 -- Indexes for dumped tables
@@ -107,6 +132,14 @@ INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`, `bloqueado`) VALUES
 -- Indexes for table `anuncio`
 --
 ALTER TABLE `anuncio`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_user_idx` (`idUser`),
+  ADD KEY `fk_cate_idx` (`idCate`);
+
+--
+-- Indexes for table `categoria`
+--
+ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -130,20 +163,32 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `anuncio`
+--
+ALTER TABLE `anuncio`
+  ADD CONSTRAINT `fk_cate` FOREIGN KEY (`idCate`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`idUser`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `images`

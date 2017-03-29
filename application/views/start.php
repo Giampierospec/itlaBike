@@ -1,5 +1,4 @@
-<h1>Ultimos Anuncios</h1>
-<!-- This is placeholder info for the page we can come back and change it later -->
+<h1>Últimos Anuncios</h1>
 <!-- This is the main page -->
 <div class="row">
 
@@ -47,8 +46,8 @@ $user = cargar_usuarios($anuncio->idUser);
     echo "<div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
     <a href='{$url}start/ver_anuncio/{$anuncio->id}'>
-      <div class='thumbnail'>
-        <img src='{$fullPath}' alt='foto'/>
+      <div class='thumbnail bs-shad-user'>
+        <img src='{$fullPath}' alt='foto' class='img-responsive'/>
         <div class='caption'>
           <p>Publicante: {$user->nombre}</p>
           <p>Titulo Anuncio: {$anuncio->titulo}</p>

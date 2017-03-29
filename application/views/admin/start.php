@@ -1,6 +1,7 @@
 <?php
 $currentUser = $_SESSION['itla_bike_user'];
 $anuncios = getadByUser($currentUser->id);
+
 ?>
 
   <div class="text-right">
@@ -42,10 +43,11 @@ $anuncios = getadByUser($currentUser->id);
               <?php
 if(!empty($anuncios)){
     foreach ($anuncios as $adVer) {
+      $categoria = getCategoriaById($adVer->idCate);
         echo "<tr>
         <td>{$adVer->id}</td>
         <td>{$adVer->titulo}</td>
-        <td>{$adVer->categoria}</td>
+        <td>{$categoria->categoria}</td>
         <td>{$adVer->precio}</td>
         <td>{$adVer->descripcion}</td>
         </tr>";
