@@ -48,6 +48,20 @@ class Start extends CI_Controller{
         $this->load->view('ver_anuncio', $d);
         $this->load->view('templates/footer');
     }
+    //This function will let me see all that's inside category
+function ver_categoria($id=0){
+    if($id === 0)
+        {
+            redirect('start');
+        }
+        $d = array();
+        $d['id'] = $id;
+
+        $this->load->view('templates/top');
+        $this->load->view('ver_categoria', $d);
+        $this->load->view('templates/footer');
+
+}
 
 
 

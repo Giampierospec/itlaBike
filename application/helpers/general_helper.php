@@ -19,7 +19,7 @@ function getAllCategorias(){
    $CI =& get_instance();
   $sql = "select * from categoria";
   $rs = $CI->db->query($sql);
-  return $rs = $rs->result();
+  return $rs->result();
 }
 //Method to get categories by Id
 function getCategoriaById($idCate){
