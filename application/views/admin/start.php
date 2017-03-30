@@ -4,11 +4,6 @@ $anuncios = getadByUser($currentUser->id);
 
 ?>
 
-  <div class="text-right">
-    <p>Usted está conectado como
-      <?php echo $currentUser->correo ?> <a href="<?php echo base_url('admin/logout')?>"> Salir</a></p>
-  </div>
-
   <div class="container-fluid">
 
     <div class="row">

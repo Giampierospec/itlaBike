@@ -55,11 +55,6 @@ if($_POST){
 }
 ?>
 
-  <div class="text-right">
-    <!-- This will show me an option to logout from the system -->
-    <p>Esta conectado como
-      <?php echo $currentUser->correo ?> <a href="<?php echo base_url('admin/logout') ?>"> Salir</a></p>
-  </div>
   <div class="jumbotron jb-reduced-ad">
     <legend>
       <h2>Publique su anuncio</h2></legend>

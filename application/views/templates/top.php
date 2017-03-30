@@ -46,3 +46,12 @@
       </nav>
       <!-- The container -->
     <div class="container-fluid text-center">
+   <?php 
+   $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"");
+   $logout = base_url('admin/logout');
+   if(isset($_SESSION['itla_bike_user'])){
+     echo "<div class='text-right'>
+    <p>Usted está conectado como {$currentUser->correo} <a href='{$logout}'> Salir</a></p>
+            </div>";
+   }
+   ?>
