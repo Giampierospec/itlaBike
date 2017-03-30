@@ -14,7 +14,7 @@ $anuncios = getadByUser($currentUser->id);
     <div class="row">
 
       <div class="col-sm-4">
-        <div class="panel panel-default bs-shad-user">
+        <div class="panel panel-success bs-shad-user">
           <div class="panel-heading">
             <h2>Información del Usuario</h2>
           </div>
