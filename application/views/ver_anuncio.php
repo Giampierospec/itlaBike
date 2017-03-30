@@ -24,10 +24,10 @@ $user = getUsuariosById($anuncio->idUser);
 
         </div>
         <div class="panel-footer">
-          <h3>Vendedor: <?php echo $user->nombre?></h3>
-          <h3>Precio: <?php echo $anuncio->precio?> $USD</h3>
-          <h3>Categoria: <?php echo $categoria->categoria?></h3>
-          <h3>Descripcion: <?php echo $anuncio->descripcion?></h3>
+          <p><strong>Vendedor:</strong> <?php echo $user->nombre?></p>
+          <p><strong>Precio:</strong> <?php echo $anuncio->precio?> $USD</p>
+          <p><strong>Categoria:</strong> <?php echo $categoria->categoria?></p>
+          <p><strong>Descripcion:</strong> <?php echo $anuncio->descripcion?></p>
           <h3>
         </div>
   </div>
