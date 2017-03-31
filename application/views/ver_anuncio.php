@@ -1,4 +1,5 @@
 <?php
+
 $CI =& get_instance();
 $sql = "select * from anuncio where id = ?";
 $rs = $CI->db->query($sql, array($id));
@@ -13,6 +14,16 @@ $path = base_url('')."bikeImages/";
 $categoria = getCategoriaById($anuncio->idCate);
 $user = getUsuariosById($anuncio->idUser);
 ?>
+
+<!--SDK de facebook para el boton compartir-->
+<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  			var js, fjs = d.getElementsByTagName(s)[0];
+  			if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  			js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=1823829894500693";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
@@ -29,6 +40,10 @@ $user = getUsuariosById($anuncio->idUser);
           <p><strong>Categoria:</strong> <?php echo $categoria->categoria?></p>
           <p><strong>Descripcion:</strong> <?php echo $anuncio->descripcion?></p>
           <h3>
+          
+          <!--integracion del Boton compartir en el panel-footer de cada publicacion-->
+          <div class="fb-share-button" data-href="http://localhost:8080/itlaBike/application/views/templates/footer.php" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FitlaBike%2Fapplication%2Fviews%2Ftemplates%2Ffooter.php&amp;src=sdkpreparse">Compartir</a></div>
+          
         </div>
   </div>
   </div>
