@@ -13,7 +13,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="<?php echo base_url('') ?>bootstrap/js/bootstrap.min.js"></script>
 <!-- Font Awesome -->
-<link rel="stylesheet" href="<?php echo base_url('') ?>font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?php echo base_url('')?>font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php echo base_url('')?>css/main.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
