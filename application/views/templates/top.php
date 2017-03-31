@@ -21,6 +21,17 @@
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
+   
+    <!--SDK de facebook para el boton compartir-->
+<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  			var js, fjs = d.getElementsByTagName(s)[0];
+  			if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  			js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=1823829894500693";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- Main Menu -->
       <nav class="navbar navbar-custom navbar-fixed-top">
         <div class="container">
@@ -54,4 +65,7 @@
     <p>Usted está conectado como {$currentUser->correo} <a href='{$logout}'> Salir</a></p>
             </div>";
    }
+	  
+	  $contador=[0];
+	  
    ?>
