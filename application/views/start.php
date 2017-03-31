@@ -31,8 +31,8 @@ foreach($anuncios as $anuncio){
         <p>Titulo Anuncio: {$anuncio->titulo}</p>
         </div></a>
         
-		<div class='fb-share-button' data-href='http://localhost:8080/itlaBike/start/ver_anuncio/$contador' data-layout='button_count' data-size='small' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FitlaBike%2Fstart%2Fver_anuncio%2F$contador&amp;src=sdkpreparse'>Compartir</a></div>
-		
+		<div class='fb-share-button' data-href='http://localhost:8080/itlaBike/start/ver_anuncio/$contador' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FitlaBike%2Fstart%2Fver_anuncio%2F$contador&amp;src=sdkpreparse'>Compartir</a></div>
+		<br>
 		</div>
         </div>
         </div>

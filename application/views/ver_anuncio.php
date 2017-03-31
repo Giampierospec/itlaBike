@@ -32,9 +32,16 @@ $user = getUsuariosById($anuncio->idUser);
           <p><strong>Categoria:</strong> <?php echo $categoria->categoria?></p>
           <p><strong>Descripcion:</strong> <?php echo $anuncio->descripcion?></p>
           <h3>
-          
+          <p>
           <!--integracion del Boton compartir en el panel-footer de cada publicacion-->
-          <div class="fb-share-button" data-href="http://localhost:8080/itlaBike/application/views/templates/footer.php" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FitlaBike%2Fapplication%2Fviews%2Ftemplates%2Ffooter.php&amp;src=sdkpreparse">Compartir</a></div>
+          <?php
+			$miurl = current_url('');
+			$miurlencoded = urlencode($miurl);
+			
+			echo "<div class='fb-share-button' data-href='$miurl' data-layout='button_count' data-size='small' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=$miurlencoded&amp;src=sdkpreparse'>Compartir</a></div>"
+			  ?>
+          </p>
+          
           
         </div>
   </div>
