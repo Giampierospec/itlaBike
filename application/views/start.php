@@ -6,6 +6,10 @@
 $url = base_url('');
 
 $anuncios = cargar_anuncios();
+	
+$miurl = current_url('');
+$miurlencoded = urlencode($miurl);
+	
 
 foreach($anuncios as $anuncio){
 	global $contador;
@@ -30,13 +34,15 @@ foreach($anuncios as $anuncio){
         <p>Publicante: {$user->nombre}</p>
         <p>Titulo Anuncio: {$anuncio->titulo}</p>
         </div></a>
-        
-		<div class='fb-share-button' data-href='http://localhost:8080/itlaBike/start/ver_anuncio/$contador' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FitlaBike%2Fstart%2Fver_anuncio%2F$contador&amp;src=sdkpreparse'>Compartir</a></div>
-		<br>
+        <p>
+		<div class='fb-share-button' data-href='$url/start/ver_anuncio/$contador' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=$miurlencoded%2fstart%2Fver_anuncio%2F$contador&amp;src=sdkpreparse'>Compartir</a></div>
+		</p>
 		</div>
         </div>
         </div>
         ";
+		
+		
     }
 }
 
