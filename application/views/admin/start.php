@@ -47,6 +47,9 @@ if(!empty($anuncios)){
         <td>{$categoria->categoria}</td>
         <td>{$adVer->precio}$</td>
         <td>{$adVer->descripcion}</td>
+        <td><a href='#' class='btn bg-green'onclick='confirmationEdit({$adVer->id});'><i class='fa fa-pencil'></i></a></td>
+        <td><a href='#' class='btn btn-danger'onclick='confirmationDelete({$adVer->id});'><i class='fa fa-trash'></i></a></td>
+        <td></td>
         </tr>";
     }
 }
@@ -61,3 +64,18 @@ else{
     </div>
 
   </div>
+  <script type="text/javascript">
+
+      //this function will make the user confirm the edit option
+      var url = '<?php echo base_url("")?>';
+      function confirmationEdit(id){
+        if(confirm("¿Estás seguro que quieres editar esta fila?")){
+          window.open(url+"admin/edit/"+id,"_self");
+        }
+      }
+      function confirmationDelete(id){
+        if(confirm("¿Estás seguro que quieres eliminar esta fila?")){
+          window.open(url+"admin/delete/"+id,"_self");
+        }
+      }
+  </script>

@@ -6,6 +6,14 @@ function getadByUser($userId){
   $rs = $CI->db->query($sql,array($userId));
   return $rs->result();
 }
+//This method will retrieve all data with the corresponding id
+function getAdById($id){
+  $CI =& get_instance();
+  $sql = "select * from anuncio where id = ?";
+  $rs = $CI->db->query($sql, array($id));
+  $rs = $rs->result();
+  return $rs[0];
+}
 // This will help me get the id of the current category
 function getCategoriaByName($categoria){
   $CI =& get_instance();
@@ -56,7 +64,7 @@ function cargar_anuncios(){
 }
 //Method to get categories by Id
 function getCategoriaById($idCate){
-  
+
   $CI =& get_instance();
   $sql = "select * from categoria where id = ?";
   $rs = $CI->db->query($sql,array($idCate));

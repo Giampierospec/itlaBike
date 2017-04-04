@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 30, 2017 at 10:03 AM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 04, 2017 at 02:12 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -41,12 +41,12 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCate`, `isBlocked`) VALUES
-(1, 'Mountain Bike aro 20', 'Esta bicicleta es una mountain bike con aro 20', 444.5, 1, 2, 1),
+(1, 'Mountain Bike con Aro 20', 'Esta bicicleta te permitirá explorar la montaña con mejor actitud', 500.55, 1, 2, 1),
 (2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1, 0),
 (3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3, 0),
 (4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4, 0),
 (5, 'Bicicleta Cruiser', 'Te permitira andar en los mas cotizados lugares', 500.85, 3, 5, 0),
-(6, 'La bicicleta estatica', 'Esta bicicleta es tan comoda que no querras salir de tu casa.', 780.85, 1, 3, 0);
+(6, 'Esta es la bicicleta estática', 'Esta bicicleta es tan cómoda que no querrás salir de tu casa para nada más.', 1000.85, 1, 3, 0);
 
 -- --------------------------------------------------------
 

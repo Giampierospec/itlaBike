@@ -37,7 +37,7 @@ class Start extends CI_Controller{
         $this->load->view('templates/footer');
     }
     function ver_anuncio($id=0) {
-        if($id === 0)
+        if($id ==0)
         {
             redirect('start');
         }
