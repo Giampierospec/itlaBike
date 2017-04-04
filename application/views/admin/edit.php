@@ -5,12 +5,12 @@ $currentUser = $_SESSION['itla_bike_user'];
 $CI =& get_instance();
 $message = "";
 $anuncio = getAdById($id);
+//This method will retrieve the category
+$categoria = getCategoriaById($anuncio->idCate);
 if($_POST){
     $ad = new stdClass();
     $ad->titulo = $_POST['titulo'];
     $categoria = $_POST['categoria'];
-    //This method will retrieve the category
-    $categoria = getCategoriaByName($categoria);
     $ad->precio = $_POST['precio'];
     $ad->descripcion = $_POST['descripcion'];
     $ad->idUser = $currentUser->id;
@@ -33,15 +33,7 @@ if($_POST){
           </div>
           <div class="form-group input-group">
             <label for="categoria" class="input-group-addon bg-green"><i class="fa fa-bars"></i> Categoria</label>
-            <select class="form-control" name="categoria" required>
-              <option value="" disabled selected="">Escoja una categoria</option>
-              <?php
-              $cate = getAllCategorias();
-              foreach ($cate as $ct) {
-                echo "<option value='{$ct->categoria}'>{$ct->categoria}</option>";
-              }
-              ?>
-            </select>
+            <input type="text" name="categoria" disabled value="<?php echo $categoria->categoria ?>" class="form-control">
           </div>
 
           <div id="message" class="alert alert-danger" style="display:none;">
