@@ -71,7 +71,7 @@ class Admin extends CI_Controller{
         $url = base_url('');
 
         unset($_SESSION['itla_bike_user']);
-        redirect('http://localhost/itlaBike/');
+        redirect($url);
     }
 
   }
