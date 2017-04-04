@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2017 at 02:12 AM
+-- Generation Time: Apr 04, 2017 at 07:36 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -41,7 +41,7 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCate`, `isBlocked`) VALUES
-(1, 'Mountain Bike con Aro 20', 'Esta bicicleta te permitirá explorar la montaña con mejor actitud', 500.55, 1, 2, 1),
+(1, 'Mountain Bike con Aro 20', 'Esta bicicleta te permitirá explorar la  montaña con mejor actitud.', 700.55, 1, 2, 1),
 (2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1, 0),
 (3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3, 0),
 (4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4, 0),

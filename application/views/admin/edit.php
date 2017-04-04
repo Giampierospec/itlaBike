@@ -10,7 +10,6 @@ $categoria = getCategoriaById($anuncio->idCate);
 if($_POST){
     $ad = new stdClass();
     $ad->titulo = $_POST['titulo'];
-    $categoria = $_POST['categoria'];
     $ad->precio = $_POST['precio'];
     $ad->descripcion = $_POST['descripcion'];
     $ad->idUser = $currentUser->id;
