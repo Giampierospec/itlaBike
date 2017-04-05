@@ -73,4 +73,5 @@ $user = getUsuariosById($anuncio->idUser);
     }
    $(document).ready(loadData);
   </script>
+  <!-- This will load the facebook comments plugin -->
   <div class="fb-comments" data-href="<?php echo base_url('') ?>" data-numposts="5"></div>
