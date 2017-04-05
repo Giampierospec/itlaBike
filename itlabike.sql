@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 04, 2017 at 07:36 PM
+-- Host: localhost
+-- Generation Time: Apr 06, 2017 at 05:43 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -41,12 +41,12 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCate`, `isBlocked`) VALUES
-(1, 'Mountain Bike con Aro 20', 'Esta bicicleta te permitirá explorar la  montaña con mejor actitud.', 700.55, 1, 2, 1),
+(1, 'Mountain Bike aro 20', 'Esta bicicleta es una mountain bike con aro 20', 444.5, 1, 2, 1),
 (2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1, 0),
 (3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3, 0),
 (4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4, 0),
 (5, 'Bicicleta Cruiser', 'Te permitira andar en los mas cotizados lugares', 500.85, 3, 5, 0),
-(6, 'Esta es la bicicleta estática', 'Esta bicicleta es tan cómoda que no querrás salir de tu casa para nada más.', 1000.85, 1, 3, 0);
+(6, 'La bicicleta estatica', 'Esta bicicleta es tan comoda que no querras salir de tu casa.', 780.85, 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,9 @@ INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`, `bloqueado`) VALUES
 (1, 'Giampiero Specogna', 'giampi_12@hotmail.com', '202cb962ac59075b964b07152d234b70', 0),
 (2, 'Nestor De La Cruz', 'nestordelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
 (3, 'Misael Maximiliam Mora Valerio', 'misael@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(4, 'Néstor De La Cruz', 'nestoredelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', 1);
+(4, 'Néstor De La Cruz', 'nestoredelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
+(5, 'holi', 'holi@gmail.com', '202cb962ac59075b964b07152d234b70', NULL),
+(6, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', NULL);
 
 --
 -- Indexes for dumped tables
@@ -184,7 +186,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
