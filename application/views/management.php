@@ -2,6 +2,16 @@
 $queryAd = $this->db->query('SELECT * FROM anuncio');
 $queryUsers = $this->db->query('SELECT * FROM usuario');
 
+$currentUser = $_SESSION['itla_bike_user'];
+$anuncios = getadByUser($currentUser->id);
+
+// Redirect to home if the user is not the admin.
+
+if($currentUser->correo != 'admin@gmail.com'){
+    
+    header("Location: http://localhost/itlaBike/");
+}
+
 $CI =& get_instance();
 if($_POST){
     $u = new stdClass();
