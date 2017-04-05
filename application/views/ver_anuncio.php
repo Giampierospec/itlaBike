@@ -23,7 +23,7 @@ $user = getUsuariosById($anuncio->idUser);
       <div class="panel-heading">
         <h1><?php echo $anuncio->titulo ?></h1>
       </div>
-        <div id="imageSliding" class="panel-body"> 
+        <div id="imageSliding" class="panel-body">
 
         </div>
         <div class="panel-footer">
@@ -37,12 +37,12 @@ $user = getUsuariosById($anuncio->idUser);
           <?php
 			$miurl = current_url('');
 			$miurlencoded = urlencode($miurl);
-			
+
 			echo "<div class='fb-share-button' data-href='$miurl' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=$miurlencoded&amp;src=sdkpreparse'>Compartir</a></div>"
 			  ?>
           </p>
-          
-          
+
+
         </div>
   </div>
   </div>
@@ -73,3 +73,4 @@ $user = getUsuariosById($anuncio->idUser);
     }
    $(document).ready(loadData);
   </script>
+  <div class="fb-comments" data-href="<?php echo base_url('') ?>" data-numposts="5"></div>
