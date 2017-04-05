@@ -18,13 +18,8 @@
 <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/user.css">
+<!-- Admin capabilities for administrators of the application -->
 <meta property="fb:app_id" content="1823829894500693" />
-<!-- Administrators - Giampiero -->
-<meta name="fb:admins" content="100003358325368">
-<!--Administrators - Nestor -->
-<meta name="fb:admins" content="100001925459210">
-<!--Administrators - Misael -->
-<meta name="fb:admins" content="100000372723447">
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
