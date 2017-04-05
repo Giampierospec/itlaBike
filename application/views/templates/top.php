@@ -18,10 +18,17 @@
 <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/user.css">
+<meta property="fb:app_id" content="1823829894500693" />
+<!-- Administrators - Giampiero -->
+<meta name="fb:admins" content="100003358325368">
+<!--Administrators - Nestor -->
+<meta name="fb:admins" content="100001925459210">
+<!--Administrators - Misael -->
+<meta name="fb:admins" content="100000372723447">
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
-   
+
     <!--SDK de facebook para el boton compartir-->
 <div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -57,7 +64,7 @@
       </nav>
       <!-- The container -->
     <div class="container-fluid text-center">
-   <?php 
+   <?php
    $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"");
    $logout = base_url('admin/logout');
    if(isset($_SESSION['itla_bike_user'])){
@@ -65,7 +72,7 @@
     <p>Usted está conectado como {$currentUser->correo} <a href='{$logout}'> Salir</a></p>
             </div>";
    }
-	  
+
 	  $contador=[0];
-	  
+
    ?>
