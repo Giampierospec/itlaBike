@@ -18,8 +18,6 @@
 <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
 <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/user.css">
-<!-- Admin capabilities for administrators of the application -->
-<meta property="fb:app_id" content="1823829894500693" />
     <title> Itla Bike | Proyecto Final</title>
   </head>
   <body>
