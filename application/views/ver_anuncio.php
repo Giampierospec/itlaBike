@@ -1,5 +1,5 @@
 <?php
-
+$CIc =& get_instance();
 $CI =& get_instance();
 $sql = "select * from anuncio where id = ?";
 $rs = $CI->db->query($sql, array($id));
@@ -14,6 +14,13 @@ $path = base_url('')."bikeImages/";
 $categoria = getCategoriaById($anuncio->idCate);
 $user = getUsuariosById($anuncio->idUser);
 $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"");
+
+if($_POST){
+  $cm = new stdClass();
+  $cm->commentary = $_POST["commentary"];
+  $cm->idUser = $currentUser->id;
+  $CIc->db->insert("comment",$cm);
+}
 ?>
 
 
@@ -74,7 +81,8 @@ $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"
     }
    $(document).ready(loadData);
   </script>
-  <!-- This will load the facebook comments plugin -->
+  <!-- This will verify if anyone is logged in to comment-->
+  <?php if(isset($_SESSION["itla_bike_user"])): ?>
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
       <div class="jumbotron jb-blank bs-shad-user">
@@ -93,3 +101,32 @@ $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"
       </div>
     </div>
   </div>
+<?php
+$comments = getAllComments();
+$url = base_url('');
+foreach ($comments as $cm) {
+  $user = getUsuariosById($cm->idUser);
+  echo "<div class='row'>
+          <div class='col-sm-6 col-sm-offset-5'>
+            <div class='jumbotron jb-blank bs-shad-user'>
+              <div class='row'>
+                <div class='col-sm-4'>
+                <p>{$cm->commentary}<p>
+                </div>
+                <div class='col-sm-4'>
+                  <div class='row'>
+                    <div class='col-sm-6'>
+                      <img src='{$url}userImage/user1.png' class='img-circle img-responsive'  alt='user'/>
+                    </div>
+                    <div class='col-sm-6'>
+                      <p>{$user->nombre}<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>";
+}
+ ?>
+ <?php endif; ?>
