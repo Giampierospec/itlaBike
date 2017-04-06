@@ -73,7 +73,7 @@ function edit_comment(){
   $CI =& get_instance();
   $CI->db->where("id",$id);
   $CI->db->update("comment",$cm);
-  redirect("start/ver_anuncio");
+  redirect('start/ver_anuncio');
 
 }
 function delete_comment(){

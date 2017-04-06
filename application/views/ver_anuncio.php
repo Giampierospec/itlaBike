@@ -156,20 +156,26 @@ foreach ($comments as $cm) {
  ?>
  <?php endif; ?>
  <script type="text/javascript">
- var url = '<?php echo base_url('start/edit_comment') ?>';
+ var urlEdit = '<?php echo base_url('start/edit_comment') ?>';
+ var urlDelete = '<?php echo base_url('start/delete_comment') ?>';
    function confirmationEdit(id,comment){
      pId = document.getElementById("comment"+id);
-     if(confirm("¿Estás seguro que quieres editar esta fila?")){
+     if(confirm("¿Estás seguro que quieres editar este comentario?")){
        pId.contentEditable = "true";
        pId.focus();
        $(pId).keydown(function(ev){
         if(ev.which == 13){
           ev.preventDefault();
           encodedComment = encodeURIComponent(pId.textContent);
-          window.open(url+"/"+id+"/"+encodedComment,"_self");
+          window.open(urlEdit+"/"+id+"/"+encodedComment,"_self");
         }
        });
      }
 
+   }
+   function confirmationDelete(id){
+     if(confirm("¿Estás seguro que quieres eliminar este comentario?")){
+       window.open(urlDelete+"/"+id,"_self");
+     }
    }
  </script>
