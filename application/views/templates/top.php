@@ -19,6 +19,13 @@
   <link rel="stylesheet" href="<?php echo base_url('')?>css/login.css" />
   <link rel="stylesheet" href="<?php echo base_url('')?>css/publish.css" />
   <link rel="stylesheet" href="<?php echo base_url('') ?>css/user.css">
+
+  <meta property="og:title" content="ItlaBike" />
+<meta property="fb:app_id" content="1823829894500693">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<?php echo base_url('') ?>" />
+<meta property="og:image" content="<?php echo base_url('') ?>bikeImages/bmx-1.jpg" />
+<meta property="og:description" content="En esta pagina promocionamos bicicletas">
   <title> Itla Bike | Proyecto Final</title>
 </head>
 
