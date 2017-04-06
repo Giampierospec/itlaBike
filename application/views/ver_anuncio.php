@@ -132,14 +132,14 @@ foreach ($comments as $cm) {
                     if($currentUser->correo == $user->correo){
                       ?>
                       <div class='col-sm-4'>
-                            <a href='#' class='btn btn-default' onclick='confirmationEdit("<?php echo $cm->id ?>","<?php echo $cm->commentary ?>");'><i class='fa fa-pencil'></i></a>
+                            <a href='#' class='btn btn-default' onclick='confirmationEdit("<?php echo $cm->id ?>","<?php echo $cm->commentary ?>","<?php echo $anuncio->id ?>");'><i class='fa fa-pencil'></i></a>
                       </div>
                       <?php
                     }
                     if($currentUser->correo == 'admin@gmail.com'){
                       ?>
                       <div class='col-sm-4'>
-                            <a href='#' class='btn btn-danger' onclick='confirmationDelete("<?php echo $cm->id ?>")'><i class='fa fa-trash'></i></a>
+                            <a href='#' class='btn btn-danger' onclick='confirmationDelete("<?php echo $cm->id ?>","<?php echo $anuncio->id ?>")'><i class='fa fa-trash'></i></a>
                         </div>
                     <?php
                     }
@@ -158,7 +158,7 @@ foreach ($comments as $cm) {
  <script type="text/javascript">
  var urlEdit = '<?php echo base_url('start/edit_comment') ?>';
  var urlDelete = '<?php echo base_url('start/delete_comment') ?>';
-   function confirmationEdit(id,comment){
+   function confirmationEdit(id,comment,idAd){
      pId = document.getElementById("comment"+id);
      if(confirm("¿Estás seguro que quieres editar este comentario?")){
        pId.contentEditable = "true";
@@ -167,15 +167,15 @@ foreach ($comments as $cm) {
         if(ev.which == 13){
           ev.preventDefault();
           encodedComment = encodeURIComponent(pId.textContent);
-          window.open(urlEdit+"/"+id+"/"+encodedComment,"_self");
+          window.open(urlEdit+"/"+id+"/"+encodedComment+"/"+idAd,"_self");
         }
        });
      }
 
    }
-   function confirmationDelete(id){
+   function confirmationDelete(id,idAd){
      if(confirm("¿Estás seguro que quieres eliminar este comentario?")){
-       window.open(urlDelete+"/"+id,"_self");
+       window.open(urlDelete+"/"+id+"/"+idAd,"_self");
      }
    }
  </script>

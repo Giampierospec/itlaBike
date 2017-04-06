@@ -67,23 +67,25 @@ function edit_comment(){
   $id = $this->uri->segment(3);
   $cm = new stdClass();
   $cm->commentary = urldecode($this->uri->segment(4));
+  $idAd = $this->uri->segment(5);
   if($id == 0){
       redirect("start");
   }
   $CI =& get_instance();
   $CI->db->where("id",$id);
   $CI->db->update("comment",$cm);
-  redirect('start/ver_anuncio');
+  redirect('start/ver_anuncio/'.$idAd);
 
 }
 function delete_comment(){
   $id = $this->uri->segment(3);
+  $idAd = $this->uri->segment(4);
   if($id==0){
     redirect("start");
   }
   $CI =&get_instance();
   $CI->db->delete("comment",array("id" => $id));
-  redirect("start/ver_anuncio");
+  redirect("start/ver_anuncio/".$idAd);
 
 }
 
