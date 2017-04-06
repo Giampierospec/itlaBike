@@ -60,12 +60,12 @@
 
 // Check if the session is empty;
 if(isset($_SESSION['itla_bike_user']) && !empty($_SESSION['itla_bike_user'])) {
-    
+
     $currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"");
-    
+    $url = base_url('management');
     // If the user is the admin show the management option.
     if($currentUser->correo == 'admin@gmail.com'){
-        echo "<li><a href='<?php echo base_url('management')'><i class='fa fa-wrench'></i> Administracion</a>
+        echo "<li><a href='{$url}'><i class='fa fa-wrench'></i> Administracion</a>
     </li>"; }
 }
 ?>

@@ -8,8 +8,8 @@ $anuncios = getadByUser($currentUser->id);
 // Redirect to home if the user is not the admin.
 
 if($currentUser->correo != 'admin@gmail.com'){
-    
-    header("Location: http://localhost/itlaBike/");
+    $url = base_url('');
+    header("Location: $url");
 }
 
 $CI =& get_instance();
@@ -17,10 +17,10 @@ if($_POST){
     $u = new stdClass();
     $u->email = "";
     $u->email = (isset($_POST['email']) ? $_POST['email'] : '');
-    
+
     $sql = "update usuario set bloqueado = true where correo = ?";
     $sqlSelect = "select * from usuario where correo = ?";
-    
+
     $rs = $CI->db->query($sql, array($u->email));
 }
 
@@ -28,9 +28,9 @@ $C2 =& get_instance();
 if($_POST){
     $a = new stdClass();
     $a->id = (isset($_POST['id']) ? $_POST['id'] : '');
-    
+
     $sql2 = "update anuncio set isBlocked = true where id = ?";
-    
+
     $rs2 = $C2->db->query($sql2, array($a->id));
 }
 ?>
