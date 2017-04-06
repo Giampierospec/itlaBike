@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2017 at 08:59 PM
+-- Generation Time: Apr 06, 2017 at 11:48 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -41,7 +41,7 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id`, `titulo`, `descripcion`, `precio`, `idUser`, `idCate`, `isBlocked`) VALUES
-(1, 'Mountain Bike aro 20', 'Esta bicicleta es una mountain bike con aro 20', 444.5, 1, 2, 1),
+(1, 'Mountain Bike aro 20', 'Esta bicicleta es una mountain bike con aro 20', 444.5, 1, 2, 0),
 (2, 'BMX con aro 17', 'Excelentes condiciones como si fuese nueva', 700.85, 2, 1, 0),
 (3, 'Bicicleta Estatica para hacer ejercicio', 'Esta bicicleta te permitira hacer ejercicio desde la comodidad de tu casa', 400.85, 3, 3, 0),
 (4, 'Bicicleta con motor electrico', 'Esta bicicleta te dará el poder de un motor eléctrico', 1000.85, 2, 4, 0),
@@ -90,7 +90,7 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `commentary`, `idUser`, `idAnuncio`) VALUES
-(5, 'buen slideshow', 1, 2);
+(5, 'buen slideshow de imagenes para la bicicleta.', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ INSERT INTO `usuario` (`id`, `nombre`, `correo`, `clave`, `bloqueado`) VALUES
 (2, 'Nestor De La Cruz', 'nestordelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
 (3, 'Misael Maximiliam Mora Valerio', 'misael@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
 (4, 'Néstor De La Cruz', 'nestoredelacruz@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
-(5, 'holi', 'holi@gmail.com', '202cb962ac59075b964b07152d234b70', NULL),
+(5, 'holi', 'holi@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
 (6, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', NULL);
 
 --
