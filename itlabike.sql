@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 06, 2017 at 05:43 AM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 06, 2017 at 08:59 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -71,6 +71,26 @@ INSERT INTO `categoria` (`id`, `categoria`, `imgContent`, `descripcion`) VALUES
 (3, 'Estatica', 'estatica-1.png', 'Para ejercitarte en casa'),
 (4, 'Electrica', 'electrica-1.png', 'Para tener los poderes de un motor.'),
 (5, 'Cruiser', 'cruiser-1.png', 'Estas bicicletas, como su nombre lo indica, son diseñadas para disfrutar cómodamente de la ciudad.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `commentary` text,
+  `idUser` int(11) DEFAULT NULL,
+  `idAnuncio` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `commentary`, `idUser`, `idAnuncio`) VALUES
+(5, 'buen slideshow', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -151,6 +171,15 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_user_idx` (`idUser`),
+  ADD KEY `id` (`id`),
+  ADD KEY `fk_id_anuncio_idx` (`idAnuncio`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -178,6 +207,11 @@ ALTER TABLE `anuncio`
 ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
@@ -197,6 +231,13 @@ ALTER TABLE `usuario`
 ALTER TABLE `anuncio`
   ADD CONSTRAINT `fk_cate` FOREIGN KEY (`idCate`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`idUser`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `fk_id_anuncio` FOREIGN KEY (`idAnuncio`) REFERENCES `anuncio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`idUser`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `images`
