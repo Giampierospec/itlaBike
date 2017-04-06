@@ -13,6 +13,7 @@ $image = $rs2;
 $path = base_url('')."bikeImages/";
 $categoria = getCategoriaById($anuncio->idCate);
 $user = getUsuariosById($anuncio->idUser);
+$currentUser = (isset($_SESSION['itla_bike_user'])?$_SESSION['itla_bike_user']:"");
 ?>
 
 
@@ -74,4 +75,21 @@ $user = getUsuariosById($anuncio->idUser);
    $(document).ready(loadData);
   </script>
   <!-- This will load the facebook comments plugin -->
-  <div class="fb-comments" data-href="<?php echo base_url('') ?>" data-numposts="5"></div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="jumbotron jb-blank bs-shad-user">
+        <form class="form-horizontal" action="" method="post">
+          <div class="row">
+            <div class="col-sm-6">
+                <textarea name="commentary" rows="1" cols="100" class="form-control" required minlength="5"></textarea>
+            </div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> comentar</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
