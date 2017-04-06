@@ -22,6 +22,13 @@ function getCategoriaByName($categoria){
   $rs = $rs->result();
   return $rs[0];
 }
+//This will get all the users
+function getAllUsers(){
+  $CI =& get_instance();
+ $sql = "select * from usuario";
+ $rs = $CI->db->query($sql);
+ return $rs->result();
+}
 //this will help me get all the categories
 function getAllCategorias(){
    $CI =& get_instance();

@@ -50,7 +50,18 @@ if($_POST){
         <form class="form-horizontal" action="" method="post">
           <div class="form-group input-group">
             <label for="email" class="input-group-addon bg-green">Correo</label>
-            <input type="email" name="email" class="form-control" required>
+            <select class="form-control" name="email" required>
+              <option value="" disabled selected>Escoja un correo para bloquear</option>
+              <?php
+              $emails = getAllUsers();
+              foreach ($emails as $email) {
+                if($email->bloqueado != true && $email->correo != "admin@gmail.com"){
+                  echo "<option value='{$email->correo}'>{$email->correo}</option>";
+                }
+              }
+
+               ?>
+            </select>
           </div>
           <div class="text-center">
             <button type="submit" class=" btn bg-green " id="btn_block ">Bloquear</button>
@@ -68,7 +79,17 @@ if($_POST){
         <form class="form-horizontal" action="" method="post">
           <div class="form-group input-group">
             <label for="id" class="input-group-addon bg-green">ID</label>
-            <input type="number" name="id" class="form-control" required>
+            <select class="form-control" name="id">
+              <option value="" selected disabled>Escoja un Id de anuncio que desea bloquear</option>
+              <?php
+              $idAnuncio = cargar_anuncios();
+              foreach ($idAnuncio as $idAd) {
+                if($idAd->isBlocked != true){
+                echo "<option value='{$idAd->id}'>{$idAd->id}</option>";
+              }
+              }
+               ?>
+            </select>
           </div>
           <div class="text-center">
             <button type="submit" class=" btn bg-green " id="btn_block ">Bloquear</button>
