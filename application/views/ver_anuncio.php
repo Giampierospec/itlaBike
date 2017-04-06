@@ -19,6 +19,7 @@ if($_POST){
   $cm = new stdClass();
   $cm->commentary = $_POST["commentary"];
   $cm->idUser = $currentUser->id;
+  $cm->idAnuncio = $id;
   $CIc->db->insert("comment",$cm);
 }
 ?>
@@ -105,28 +106,70 @@ if($_POST){
 $comments = getAllComments();
 $url = base_url('');
 foreach ($comments as $cm) {
+  if($cm->idAnuncio == $id){
   $user = getUsuariosById($cm->idUser);
   echo "<div class='row'>
           <div class='col-sm-6 col-sm-offset-5'>
-            <div class='jumbotron jb-blank bs-shad-user'>
-              <div class='row'>
-                <div class='col-sm-4'>
-                <p>{$cm->commentary}<p>
-                </div>
-                <div class='col-sm-4'>
-                  <div class='row'>
-                    <div class='col-sm-6'>
-                      <img src='{$url}userImage/user1.png' class='img-circle img-responsive'  alt='user'/>
-                    </div>
-                    <div class='col-sm-6'>
-                      <p>{$user->nombre}<p>
-                    </div>
-                  </div>
-                </div>
+            <div class='panel panel-success bs-shad-user'>
+              <div class='panel-heading text-center'>
+                <h3>Comentarios</h3>
               </div>
+              <div class='panel-body'>
+                <div class='row'>
+                  <div class='col-sm-4'>
+                  <p id='comment{$cm->id}'>{$cm->commentary}<p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <div class='row'>
+                      <div class='col-sm-6'>
+                        <img src='{$url}userImage/user1.png' class='img-circle img-responsive'  alt='user'/>
+                      </div>
+                      <div class='col-sm-6'>
+                        <p>{$user->nombre}<p>
+                      </div>
+                    </div>
+                    </div>";
+                    if($currentUser->correo == $user->correo){
+                      ?>
+                      <div class='col-sm-4'>
+                            <a href='#' class='btn btn-default' onclick='confirmationEdit("<?php echo $cm->id ?>","<?php echo $cm->commentary ?>");'><i class='fa fa-pencil'></i></a>
+                      </div>
+                      <?php
+                    }
+                    if($currentUser->correo == 'admin@gmail.com'){
+                      ?>
+                      <div class='col-sm-4'>
+                            <a href='#' class='btn btn-danger' onclick='confirmationDelete("<?php echo $cm->id ?>")'><i class='fa fa-trash'></i></a>
+                        </div>
+                    <?php
+                    }
+
+          ?>
+          <?php
+                echo"</div>
+                </div>
             </div>
           </div>
         </div>";
 }
+}
  ?>
  <?php endif; ?>
+ <script type="text/javascript">
+ var url = '<?php echo base_url('start/edit_comment') ?>';
+   function confirmationEdit(id,comment){
+     pId = document.getElementById("comment"+id);
+     if(confirm("¿Estás seguro que quieres editar esta fila?")){
+       pId.contentEditable = "true";
+       pId.focus();
+       $(pId).keydown(function(ev){
+        if(ev.which == 13){
+          ev.preventDefault();
+          encodedComment = encodeURIComponent(pId.textContent);
+          window.open(url+"/"+id+"/"+encodedComment,"_self");
+        }
+       });
+     }
+
+   }
+ </script>

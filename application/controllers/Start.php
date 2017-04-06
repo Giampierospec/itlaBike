@@ -62,7 +62,29 @@ function ver_categoria($id=0){
         $this->load->view('templates/footer');
 
 }
+//This function will help me edit the comment
+function edit_comment(){
+  $id = $this->uri->segment(3);
+  $cm = new stdClass();
+  $cm->commentary = urldecode($this->uri->segment(4));
+  if($id == 0){
+      redirect("start");
+  }
+  $CI =& get_instance();
+  $CI->db->where("id",$id);
+  $CI->db->update("comment",$cm);
+  redirect("start/ver_anuncio");
 
+}
+function delete_comment(){
+  $id = $this->uri->segment(3);
+  if($id==0){
+    redirect("start");
+  }
+  $CI =&get_instance();
+  $CI->db->delete("comment",array("id" => $id));
+  redirect("start/ver_anuncio");
 
+}
 
 }

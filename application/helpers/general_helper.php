@@ -46,6 +46,13 @@ function getUsuariosById($id){
   return $result;
 
 }
+//This will get all my comments
+function getAllComments(){
+  $CI =& get_instance();
+  $sql = "select * from comment";
+  $rs = $CI->db->query($sql);
+  return $rs->result();
+}
 //This will retrieve all photos by advertisement
 function getPhotosByAd($idAnuncio){
     $CI =& get_instance();
