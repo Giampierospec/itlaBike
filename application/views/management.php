@@ -41,7 +41,6 @@ if($_POST){
 
   <h1 class="text-center">Actualmente hay: <?php echo $queryAd->num_rows(); ?> anuncios registrados</h1>
   <h1 class="text-center">Actualmente hay: <?php echo $queryUsers->num_rows(); ?> usuarios registrados</h1>
-
   <div class="jumbotron jb-reduced-ad">
     <legend>
       <h2>Bloquear usuario</h2></legend>

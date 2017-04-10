@@ -22,7 +22,7 @@ if($_POST){
 
   <div class="jumbotron jb-reduced-ad">
     <legend>
-      <h2>Publique su anuncio</h2></legend>
+      <h2>Edite su anuncio</h2></legend>
     <div class="row">
       <div class="col-sm-12">
         <form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
@@ -47,7 +47,7 @@ if($_POST){
             <textarea name="descripcion" rows="4" cols="80" class="form-control" placeholder="<?php echo $anuncio->descripcion ?>"required></textarea>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn bg-green" id="btn_publish"><i class="fa fa-paper-plane-o"></i> Publicar</button>
+            <button type="submit" class="btn bg-green" id="btn_publish"><i class="fa fa-paper-plane-o"></i> Editar</button>
           </div>
         </form>
       </div>
