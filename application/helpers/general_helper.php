@@ -72,7 +72,7 @@ function getPhotosByAd($idAnuncio){
 //Method to load all the ads
 function cargar_anuncios(){
     $CI =& get_instance();
-    $sql = "select * from anuncio";
+    $sql = "select * from anuncio order by id desc limit 10";
     $rs = $CI->db->query($sql);
     return $rs->result();
 }
